@@ -7,6 +7,7 @@ import android.app.Service
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Binder
 import android.os.Build
 import android.os.IBinder
@@ -14,6 +15,7 @@ import android.os.RemoteException
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import androidx.core.content.pm.PackageInfoCompat
 import com.slipkprojects.gostvpn.R
 import com.slipkprojects.gostvpn.domain.model.GostSettings
 import java.util.*
@@ -192,6 +194,28 @@ class GostService : Service() {
                 mBinder?.mClients?.remove(key)
             }
         }
+
+        logInformation()
+    }
+
+    private fun logInformation() {
+
+        sendToClientsLog(
+            getString(R.string.mobile_info,
+                Build.BOARD,
+                Build.BRAND,
+                Build.MODEL,
+                Build.VERSION.RELEASE,
+                Build.VERSION.SDK_INT)
+        )
+
+        val version = try {
+            val packageinfo = packageManager.getPackageInfo(packageName, 0)
+            String.format("%s Build %d", packageinfo.versionName, PackageInfoCompat.getLongVersionCode(packageinfo).toInt())
+        } catch (ignored: PackageManager.NameNotFoundException) {
+            "error getting version"
+        }
+        sendToClientsLog(getString(R.string.mobile_info2, version))
 
         // adiciona a versão do gost aos logs
         GostThread.getGostVersion(this)?.also {

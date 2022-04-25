@@ -79,6 +79,7 @@ class HomeTabFragment: Fragment() {
         viewModel.isEnabledGostService.observe(this) {
             binding?.editor?.isEnabled = !it
             binding?.buttonStarter?.setText(if (it) R.string.action_stop else R.string.action_start)
+            binding?.fabPasteSettings?.isEnabled = !it
         }
     }
 

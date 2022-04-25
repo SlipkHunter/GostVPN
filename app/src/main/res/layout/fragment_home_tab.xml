@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-    <Button
-            android:text="@string/action_start"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_starter"
-            app:layout_constraintStart_toStartOf="@+id/editor"
-            app:layout_constraintEnd_toEndOf="@+id/editor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="384dp"/>
-
-    <TextView
-            android:text="@string/settings_json_gost"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/editor"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="@+id/fab_paste_settings"
-            app:layout_constraintEnd_toStartOf="@+id/fab_paste_settings"
-            app:layout_constraintBottom_toBottomOf="@+id/fab_paste_settings"/>
-
-    <com.blacksquircle.ui.editorkit.widget.TextProcessor
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/editor"
-            android:hint="Digite/cole as configurações do gost aqui"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintBottom_toTopOf="@+id/button_starter"/>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_content_paste_24"
-            android:id="@+id/fab_paste_settings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:focusable="true"
-            android:contentDescription="Colar"/>
+    >
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+                android:text="@string/action_start"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_starter"
+                app:layout_constraintStart_toStartOf="@+id/editor"
+                app:layout_constraintEnd_toEndOf="@+id/editor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginTop="384dp"/>
+
+        <TextView
+                android:text="@string/settings_json_gost"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/editor"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="start|center"
+                app:layout_constraintTop_toTopOf="@+id/fab_paste_settings"
+                app:layout_constraintEnd_toStartOf="@+id/fab_paste_settings"
+                app:layout_constraintBottom_toBottomOf="@+id/fab_paste_settings"/>
+
+        <com.blacksquircle.ui.editorkit.widget.TextProcessor
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/editor"
+                android:hint="Digite/cole as configurações do gost aqui"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintBottom_toTopOf="@+id/button_starter"/>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_content_paste_24"
+                android:id="@+id/fab_paste_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:focusable="true"
+                android:contentDescription="Colar"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

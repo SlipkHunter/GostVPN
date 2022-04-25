@@ -7,4 +7,7 @@
     <string name="settings_json_gost">Configurações do Gost em Json</string>
     <string name="action_start">Conectar</string>
     <string name="action_stop">Desconectar</string>
+
+    <string name="mobile_info">Rodando no %s %s (%s), Android %s API %d</string>
+    <string name="mobile_info2">Versão do Aplicativo: %s</string>
 </resources>
