@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GostVPN</string>
+    <string name="app_description">Um simples proxy tunnel</string>
+
+    <string name="tab_home">Inicio</string>
+    <string name="tab_logs">Registro</string>
+    <string name="settings_json_gost">Configurações do Gost em Json</string>
+    <string name="action_start">Conectar</string>
+    <string name="action_stop">Desconectar</string>
+</resources>
