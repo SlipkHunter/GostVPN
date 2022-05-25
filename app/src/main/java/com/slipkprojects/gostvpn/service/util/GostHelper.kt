@@ -14,11 +14,4 @@ object GostHelper {
         }
         ContextCompat.startForegroundService(context, service)
     }
-
-    fun stopService(context: Context) {
-        val service = Intent(context, GostService::class.java).apply {
-            action = GostService.ACTION_STOP
-        }
-        context.startService(service)
-    }
 }

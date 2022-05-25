@@ -10,4 +10,8 @@
 
     <string name="mobile_info">Rodando no %s %s (%s), Android %s API %d</string>
     <string name="mobile_info2">Versão do Aplicativo: %s</string>
+    <string name="about">Sobre</string>
+    <string name="import_clipboard">Importar do clipboard</string>
+    <string name="help_write_settings">Digite/cole as configurações do gost aqui</string>
+    <string name="error_empty_settings">As configurações não podem ficar em branco</string>
 </resources>

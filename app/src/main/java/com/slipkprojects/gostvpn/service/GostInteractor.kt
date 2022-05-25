@@ -13,9 +13,11 @@ import java.util.concurrent.atomic.AtomicBoolean
 /**
  * Permite uma melhor interação entre serviço e cliente
  */
-class GostInteractor(private val context: Context, listener: Listener) {
+class GostInteractor(
+    private val context: Context, listener: Listener
+) {
 
-    private var iRemoteService: GostService.LocalBinder? = null
+    private var iRemoteService: LocalBinder? = null
     private var mBound = AtomicBoolean(false)
     private val awaitBound = CountDownLatch(1)
 
@@ -23,7 +25,7 @@ class GostInteractor(private val context: Context, listener: Listener) {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             // Following the example above for an AIDL interface,
             // this gets an instance of the IRemoteInterface, which we can use to call on the service
-            iRemoteService = (service as GostService.LocalBinder).apply {
+            iRemoteService = (service as LocalBinder).apply {
                 // We want to monitor the service for as long as we are
                 // connected to it.
                 try {
@@ -75,7 +77,7 @@ class GostInteractor(private val context: Context, listener: Listener) {
     }
 
     suspend fun stopVpn() {
-        withContext(Dispatchers.Default) {
+        withContext(Dispatchers.IO) {
             awaitBound.await()
 
             iRemoteService?.apply {
@@ -90,7 +92,7 @@ class GostInteractor(private val context: Context, listener: Listener) {
     }
 
     suspend fun clearLogsFromService() {
-        withContext(Dispatchers.Default) {
+        withContext(Dispatchers.IO) {
             awaitBound.await()
 
             iRemoteService?.apply {
@@ -111,7 +113,7 @@ class GostInteractor(private val context: Context, listener: Listener) {
         fun onLogsCleared() {}
     }
 
-    private val iStatusCallbacks = object : GostService.GostCallback {
+    private val iStatusCallbacks = object : GostCallback {
         override fun onNewLogItem(logMessage: String) {
             listener.onNewLog(logMessage)
         }

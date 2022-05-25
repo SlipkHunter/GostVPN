@@ -59,11 +59,24 @@ class HomeTabFragment: Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.miAbout) {
-            Intent(activity, AboutActivity::class.java).apply {
-                startActivity(this)
+        when (item.itemId) {
+            R.id.miAbout -> {
+                Intent(activity, AboutActivity::class.java).apply {
+                    startActivity(this)
+                }
+                return true
             }
-            return true
+            R.id.miSettingImportFromClipboard -> {
+                if (viewModel.isEnabledGostService.value != true) {
+                    val text = Utils.getLastFromClipboard(requireContext())
+                    if (text != null) {
+                        binding?.editor?.setTextContent(text.trim())
+                    }
+                } else {
+                    Toast.makeText(context, "Desconecte antes para editar a configuração", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -79,7 +92,6 @@ class HomeTabFragment: Fragment() {
         viewModel.isEnabledGostService.observe(this) {
             binding?.editor?.isEnabled = !it
             binding?.buttonStarter?.setText(if (it) R.string.action_stop else R.string.action_start)
-            binding?.fabPasteSettings?.isEnabled = !it
         }
     }
 
@@ -95,12 +107,6 @@ class HomeTabFragment: Fragment() {
                     Toast.makeText(context, "Json malformed or invalid. ${e.localizedMessage}", Toast.LENGTH_LONG)
                         .show()
                 }
-            }
-        }
-        binding?.fabPasteSettings?.setOnClickListener {
-            val text = Utils.getLastFromClipboard(requireContext())
-            if (text != null) {
-                binding?.editor?.setTextContent(text.trim())
             }
         }
     }

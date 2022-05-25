@@ -11,7 +11,10 @@
         <entry key="..\:/Users/Anderson/StudioProjects/GostVPN/app/src/main/res/layout/item_logs_list.xml" value="0.33" />
         <entry key="..\:/Users/Anderson/StudioProjects/GostVPN/app/src/main/res/menu/activity_main_menu.xml" value="0.21458333333333332" />
         <entry key="..\:/Users/Anderson/StudioProjects/GostVPN/app/src/main/res/menu/logs_menu.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.21041666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home_tab.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/menu/activity_main_menu.xml" value="0.225" />
       </map>
     </option>
   </component>

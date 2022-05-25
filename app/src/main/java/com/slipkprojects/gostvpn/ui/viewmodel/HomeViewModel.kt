@@ -2,6 +2,7 @@ package com.slipkprojects.gostvpn.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.slipkprojects.gostvpn.R
 import com.slipkprojects.gostvpn.domain.model.Event
 import com.slipkprojects.gostvpn.domain.usecase.GetGostSettingsUseCase
 import com.slipkprojects.gostvpn.domain.usecase.UpdateGostSettingsUseCase
@@ -35,7 +36,7 @@ class HomeViewModel @Inject constructor(
 
     fun startOrStopGostService() = viewModelScope.launch {
         if (isEnabledGostService.value == true) {
-            GostHelper.stopService(getApplication())
+            stopVPN()
         } else {
             val settings = gostSettings.asFlow().first()
 
@@ -47,23 +48,27 @@ class HomeViewModel @Inject constructor(
     }
 
     fun updateGostSettings(gostSettings: GostSettings) = viewModelScope.launch {
-        updateGostSettingsUseCase.invoke(gostSettings)
+        updateGostSettingsUseCase(gostSettings)
     }
 
-    fun clearLogs() = viewModelScope.launch {
+    private fun stopVPN() = viewModelScope.launch {
+        gostInteractor.stopVpn()
+    }
+
+    private fun clearLogs() = viewModelScope.launch {
         gostInteractor.clearLogsFromService()
     }
 
 
     private fun validarGostSettings(gostSettings: GostSettings): Boolean {
-        var errorMsg: String? = null
+        var errorMsg: Int? = null
 
         if (gostSettings.settings.isBlank()) {
-            errorMsg = "As configurações não podem ficar em branco"
+            errorMsg = R.string.error_empty_settings
         }
 
         return if (errorMsg != null) {
-            promptMessage.postValue(Event(errorMsg))
+            promptMessage.postValue(Event(getApplication<Application>().getString(errorMsg)))
             false
         } else {
             true

@@ -1,19 +1,16 @@
 package com.slipkprojects.gostvpn.ui.activity
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import com.slipkprojects.gostvpn.R
 import com.slipkprojects.gostvpn.databinding.ActivityMainBinding
-import com.slipkprojects.gostvpn.ui.viewmodel.HomeViewModel
 import com.slipkprojects.gostvpn.ui.adapter.ScreenSlidePagerAdapter
 import com.slipkprojects.gostvpn.ui.fragment.HomeTabFragment
 import com.slipkprojects.gostvpn.ui.fragment.LogsTabFragment
+import com.slipkprojects.gostvpn.ui.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,26 +40,6 @@ class MainActivity : AppCompatActivity() {
         subscribeUi()
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.miAbout) {
-            Intent(this, AboutActivity::class.java).apply {
-                startActivity(this)
-            }
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
-
-
     private fun subscribeUi() {
         viewModel.promptMessage.observe(this) { event ->
             event.getContentIfNotHandled()?.also {
@@ -71,6 +48,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }
