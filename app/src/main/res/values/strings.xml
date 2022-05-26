@@ -1,15 +1,10 @@
 <resources>
-    <string name="app_name">GostVPN</string>
-    <string name="app_description">Um simples proxy tunnel</string>
-
     <string name="tab_home">Inicio</string>
     <string name="tab_logs">Registro</string>
     <string name="settings_json_gost">Configurações do Gost em Json</string>
     <string name="action_start">Conectar</string>
     <string name="action_stop">Desconectar</string>
 
-    <string name="mobile_info">Rodando no %s %s (%s), Android %s API %d</string>
-    <string name="mobile_info2">Versão do Aplicativo: %s</string>
     <string name="about">Sobre</string>
     <string name="import_clipboard">Importar do clipboard</string>
     <string name="help_write_settings">Digite/cole as configurações do gost aqui</string>

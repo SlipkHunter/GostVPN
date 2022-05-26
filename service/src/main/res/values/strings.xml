@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GostVPN</string>
+    <string name="app_description">Um simples proxy tunnel</string>
+
+    <string name="mobile_info">Rodando no %s %s (%s), Android %s API %d</string>
+    <string name="mobile_info2">Versão do Aplicativo: %s</string>
+</resources>

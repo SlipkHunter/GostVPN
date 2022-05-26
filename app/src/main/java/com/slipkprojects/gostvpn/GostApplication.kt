@@ -9,7 +9,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.slipkprojects.gostvpn.service.GostService
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
 
 @HiltAndroidApp
 class GostApplication: Application() {
@@ -30,7 +29,7 @@ class GostApplication: Application() {
         val importance = NotificationManager.IMPORTANCE_LOW
 
         (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(
-            NotificationChannel(GostService.NOTIFICATION_CHANNEL_ID, name, importance).apply {
+            NotificationChannel(com.slipkprojects.gostvpn.service.GostService.NOTIFICATION_CHANNEL_ID, name, importance).apply {
                 this.description = description
                 enableLights(false)
                 enableVibration(false)
