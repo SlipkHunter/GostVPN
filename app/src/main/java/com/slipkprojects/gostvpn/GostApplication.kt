@@ -29,7 +29,7 @@ class GostApplication: Application() {
         val importance = NotificationManager.IMPORTANCE_LOW
 
         (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(
-            NotificationChannel(com.slipkprojects.gostvpn.service.GostService.NOTIFICATION_CHANNEL_ID, name, importance).apply {
+            NotificationChannel(GostService.NOTIFICATION_CHANNEL_ID, name, importance).apply {
                 this.description = description
                 enableLights(false)
                 enableVibration(false)

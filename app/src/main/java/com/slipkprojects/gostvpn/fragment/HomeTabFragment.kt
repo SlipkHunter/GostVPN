@@ -72,7 +72,7 @@ class HomeTabFragment: Fragment() {
                         binding?.editor?.setTextContent(text.trim())
                     }
                 } else {
-                    Toast.makeText(context, "Desconecte antes para editar a configuração", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, R.string.error_need_disconnect, Toast.LENGTH_SHORT)
                         .show()
                 }
             }

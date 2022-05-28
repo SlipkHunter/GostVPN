@@ -22,6 +22,10 @@ By making a contribution to this project you agree to the following:
 2. I certify that the contribution was created in whole by me;
 3. I understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information I submit with it) is maintained indefinitely and may be redistributed with this project or the open source license(s) involved.
 
+### Code Sources
+* `service/src/main/jniLibs/armeabi-v7a/libgost.so`:
+    * https://github.com/ginuerzh/gost/releases/download/v2.11.2/gost-linux-armv7-2.11.2.gz
+
 ### License
 ```
 MIT License

@@ -9,4 +9,8 @@
     <string name="import_clipboard">Importar do clipboard</string>
     <string name="help_write_settings">Digite/cole as configurações do gost aqui</string>
     <string name="error_empty_settings">As configurações não podem ficar em branco</string>
+    <string name="title_app_info">Detalhes do projeto</string>
+    <string name="app_description">Aplicativo de teste usando o Gost, um simples tunnel.</string>
+    <string name="third_parties">Bibliotecas de terceiros</string>
+    <string name="error_need_disconnect">Desconecte antes para editar a configuração</string>
 </resources>

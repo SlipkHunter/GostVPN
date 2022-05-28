@@ -30,7 +30,8 @@
                 android:minLines="10"
                 android:hint="@string/help_write_settings"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintBottom_toTopOf="@+id/button_starter"/>
+                app:layout_constraintBottom_toTopOf="@+id/button_starter"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
                 android:text="@string/action_start"
