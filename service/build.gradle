@@ -35,6 +35,7 @@ android {
             jniLibs.srcDirs = ["src/main/jniLibs"]
         }
     }
+    namespace 'com.slipkprojects.gostvpn.service'
 }
 
 dependencies {

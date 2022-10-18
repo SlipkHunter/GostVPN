@@ -43,6 +43,7 @@ android {
             useLegacyPackaging = true
         }
     }
+    namespace 'com.slipkprojects.gostvpn'
 }
 
 dependencies {
